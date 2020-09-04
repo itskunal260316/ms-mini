@@ -61,7 +61,7 @@
                 <label for="username" class="form-text">Username :</label>
                 <input type="text" class="form-control" (blur)="validateUsername()" placeholder="Enter Username"
                     id="username" formControlName="username" required>
-                <div class="alert alert-danger" *ngIf="isValidUsername" role="alert">
+                <div class="alert alert-danger mt-1" *ngIf="isValidUsername" role="alert">
                     Username already exits
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <label for="userEmail" class="form-text">Email :</label>
                 <input type="email" class="form-control" (blur)="validateEmail()" placeholder="Enter Email"
                     id="userEmail" formControlName="email" required>
-                <div class="alert alert-danger" *ngIf="isValidEmail" role="alert">
+                <div class="alert alert-danger mt-1" *ngIf="isValidEmail" role="alert">
                     Email already exits
                 </div>
             </div>
@@ -81,9 +81,9 @@
             </div>
             <div class="form-group">
                 <label for="conPass" class="form-text">Confirm Password :</label>
-                <input type="password" class="form-control" (blur)="checkPassword()" placeholder="Re-enter the Password"
-                    id="conPAss">
-                <div class="alert alert-danger" *ngIf="isPasswordSame" role="alert">
+                <input type="password" formControlName="conPass" class="form-control" (blur)="checkPassword()"
+                    placeholder="Re-enter the Password" id="conPAss">
+                <div class="alert alert-danger mt-1" *ngIf="isPasswordSame" role="alert">
                     Passwords don't match.
                 </div>
             </div>

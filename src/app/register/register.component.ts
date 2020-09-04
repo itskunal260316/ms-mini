@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { flatten } from '@angular/compiler';
+import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class RegisterComponent {
     email: ['', Validators.required],
     userpass: ['', Validators.required],
     userphone: ['', Validators.required],
+    conPass: ['', Validators.required]
 
   });
 
@@ -78,7 +80,12 @@ export class RegisterComponent {
 
   checkPassword() {
     this.userDetails = this.regForm.value;
-    console.log(this.userDetails);
+    if (this.regForm.value.conPass === this.regForm.value.userpass) {
+      this.isPasswordSame = false;
+    }
+    else {
+      this.isPasswordSame = true;
+    }
 
   }
 
