@@ -18,6 +18,7 @@ import { ServicesComponent } from './services/services.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AboutUsComponent,
     ServicesComponent,
     MainPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

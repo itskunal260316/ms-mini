@@ -21,6 +21,7 @@ const routes: Routes = [
   {
     path: 'home', component: HomePageComponent, children: [
 
+      { path: '', component: MainPageComponent },
       { path: 'mainPage', component: MainPageComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'services', component: ServicesComponent },
