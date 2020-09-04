@@ -36,7 +36,7 @@
         </div>
     </nav>
 
-    <div id="form-cont" class="container col-lg-5 mt-3 pt-1" style="border-bottom-left-radius: 2%; border-radius: 2%;">
+    <div id="form-cont" class="container col-lg-5 mt-3 pt-1" style=" border-radius: 2%;">
 
         <div class="jumbotron bg-dark d-flex justify-content-center mb-5 mt-5 font-weight-bolder"
             style="font-style: italic; color: white;">
@@ -59,15 +59,19 @@
             </div>
             <div class="form-group">
                 <label for="username" class="form-text">Username :</label>
-                <input type="text" class="form-control" placeholder="Enter Username" id="username"
-                    formControlName="username" required>
-                <small></small>
+                <input type="text" class="form-control" (blur)="validateUsername()" placeholder="Enter Username"
+                    id="username" formControlName="username" required>
+                <div class="alert alert-danger" *ngIf="isValidUsername" role="alert">
+                    Username already exits
+                </div>
             </div>
             <div class="form-group">
                 <label for="userEmail" class="form-text">Email :</label>
                 <input type="email" class="form-control" placeholder="Enter Email" id="userEmail"
                     formControlName="email" required>
-                <small>Your private data will not be shared</small>
+                <div class="alert alert-danger" *ngIf="isValidEmail" role="alert">
+                    Username already exits
+                </div>
             </div>
             <div class="form-group">
                 <label for="userPass" class="form-text">Password :</label>
@@ -90,12 +94,13 @@
         </div>
 
 
+
         <div id="submit-btn" class="d-flex justify-content-center form-group">
             <button type="submit" (click)="ajaxCall()" class="btn col-lg-5 btn-md btn-success form-control m-3"
                 [disabled]="!regForm.valid">SUBMIT</button>
         </div>
-        <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
-        </div>
+
+
+
     </div>
 </div>

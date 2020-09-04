@@ -14,6 +14,9 @@ export class RegisterComponent {
 
   constructor(public http: HttpClient, private fb: FormBuilder) { }
 
+  public isValidUsername = false;
+  public isValidEmail = false;
+
   public regForm = this.fb.group({
 
     fname: ['', Validators.required],
@@ -43,6 +46,21 @@ export class RegisterComponent {
       alert("Operation Failed");
     }
 
+  }
+
+  username_valid = {};
+
+  async validateUsername() {
+
+    this.userDetails = this.regForm.value;
+    const url = 'http://localhost:5700/usernameValid';
+    let res = await this.http.post(url, this.userDetails).toPromise();
+    if (res != 0) {
+      this.isValidUsername = true;
+    }
+    else {
+      this.isValidUsername = false;
+    }
   }
 
 
