@@ -19,6 +19,7 @@ export class RegisterComponent {
   public isValidEmail = false;
   public isPasswordSame = false;
   public isValidEmailPattern = false;
+  public isValidPassPattern = false;
 
   public regForm = this.fb.group({
 
@@ -88,28 +89,30 @@ export class RegisterComponent {
       this.isValidEmailPattern = true;
     }
 
-    // const url = 'http://localhost:5700/usernameEmail';
-    // let res = await this.http.post(url, this.userDetails).toPromise();
-    // if (res != 0) {
-    //   this.isValidEmail = true;
-    // }
-    // else {
-    //   this.isValidEmail = false;
-    // }
   }
 
-  recalEmail() {
-    this.isValidEmailPattern = false;
-  }
 
   checkPassword() {
     this.userDetails = this.regForm.value;
-    if (this.regForm.value.conPass === this.regForm.value.userpass) {
-      this.isPasswordSame = false;
+    let userPass = this.regForm.value.userpass;
+    let regex = /^([a-z0-9@_]+)$/;
+    if (regex.test(userPass)) {
+      this.isValidPassPattern = false;
+      if (this.regForm.value.conPass === this.regForm.value.userpass) {
+        this.isPasswordSame = false;
+      }
+      else {
+        this.isPasswordSame = true;
+      }
     }
     else {
-      this.isPasswordSame = true;
+      this.isValidPassPattern = true;
     }
+
+
+
+
+
 
   }
 
