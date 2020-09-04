@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       console.log("Routing to Home Page");
     }
     else {
-      console.log("Failed");
+      console.log("Failed to route");
     }
 
 
