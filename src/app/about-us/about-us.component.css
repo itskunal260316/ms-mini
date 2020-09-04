@@ -1,0 +1,10 @@
+#aboutUs-cont{
+    height: 100vh;
+    background-image: url(../../assets/contactsBg.jpg);
+    background-attachment: fixed;
+}
+#inner-main-cont{
+    background-image: url(../../assets/contactsBg.jpg);
+    background-attachment: fixed;
+
+}
