@@ -1,41 +1,65 @@
 <div id="cont-container" class="container-fluid p-0 m-0 d-flex justify-content-center align-items-center"
     style="height: 100vh;">
-    <div class=" container bg-secondary d-flex col-lg-6 col-12 justify-content-center align-items-center flex-column">
-        <div class="jumbotron mt-2 col-lg-12 d-flex justify-content-center align-items-center">
-            <h1>CONTACT US</h1>
+
+    <div class="container d-flex col-lg-6 col-12 p-0 justify-content-center align-items-center flex-column"
+        style=" border-radius: 3%; background-image: linear-gradient(to right, rgb(92, 20, 18), rgb(0, 94, 182))">
+
+        <div class="jumbotron mt-2 col-lg-12 d-flex justify-content-center align-items-center"
+            style="background-color: rgba(255, 255, 255,0);">
+
+            <h1 class="font-weight-bolder" style="color: white;">CONTACT US</h1>
+
         </div>
+
         <div [formGroup]="contactMsg">
+
             <div class="row justify-content-between col-12">
+
                 <div class="col-lg-4 col-12 mt-2 ">
-                    <label class="font-weight-bolder">Name :</label>
+                    <label class="font-weight-bolder" style="color:white;">Name :</label>
                     <input class="form-control" formControlName="name" id="custName" placeholder="Name">
                 </div>
+
                 <div class="col-lg-4 col-12 mt-2 ">
-                    <label class="font-weight-bolder">Email :</label>
+                    <label class="font-weight-bolder" style="color:white;">Email :</label>
+
                     <input class="form-control" formControlName="email" id="custEmail" (blur)="validateContactEmail()"
-                        placeholder="Example@abc.com">
+                        placeholder="Example@abc.com" required>
+
                     <div class="alert alert-danger mt-3" *ngIf="isContactEmailValid" role="alert">
                         Enter valid email.
                     </div>
+
                 </div>
+
                 <div class="col-lg-4 col-12 mt-2 ">
-                    <label class="font-weight-bolder">Phone :</label>
+
+                    <label class="font-weight-bolder" style="color:white;">Phone :</label>
+
                     <input class="form-control" formControlName="phone" id="custPhone" maxlength="10" minlength="10"
                         placeholder="+91-XXXXXXXXXX">
+
                     <div class="alert alert-danger mt-3" *ngIf="isContactPhone" role="alert">
                         Enter valid Phone Number.
                     </div>
+
                 </div>
+
             </div>
+
             <div class="mt-3 col-lg-11">
+
                 <div class=" ">
-                    <label class="font-weight-bolder">Message :</label>
+                    <label class="font-weight-bolder" style="color:white;">Message :</label>
+
                     <div class="input-group">
                         <textarea class="form-control" formControlName="msg" aria-label="With textarea"
-                            style="height: 200px;"
-                            placeholder="Enter your message here, we will get back to you soon"></textarea>
+                            style="height: 200px;" placeholder="Enter your message here, we will get back to you soon"
+                            required></textarea>
                     </div>
+
                 </div>
+
             </div>
         </div>
 
@@ -44,7 +68,7 @@
             We have received your message, We'll get back to you at our earliest.
         </div>
 
-        <div class="submit-button mt-3 mb-3 col-lg-4">
+        <div class="submit-button mt-4 mb-4 col-lg-4">
             <button class="btn btn-lg btn-success col-12" (click)="saveMsg()">Send</button>
         </div>
     </div>
