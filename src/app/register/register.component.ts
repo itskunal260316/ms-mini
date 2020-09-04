@@ -18,6 +18,7 @@ export class RegisterComponent {
   public isValidUsername = false;
   public isValidEmail = false;
   public isPasswordSame = false;
+  public isValidEmailPattern = false;
 
   public regForm = this.fb.group({
 
@@ -68,14 +69,37 @@ export class RegisterComponent {
 
   async validateEmail() {
     this.userDetails = this.regForm.value;
-    const url = 'http://localhost:5700/usernameEmail';
-    let res = await this.http.post(url, this.userDetails).toPromise();
-    if (res != 0) {
-      this.isValidEmail = true;
+    let userEmail = this.regForm.value.email;
+    let regex = /^([a-zA_Z0-9\.@_]+)@([a-zA_Z0-9\.-_]{2,20}).([a-z]{2,3})(\.[a-z]{2,10})$/
+    if (regex.test(userEmail)) {
+      this.isValidEmailPattern = false;
+      const url = 'http://localhost:5700/usernameEmail';
+      let res = await this.http.post(url, this.userDetails).toPromise();
+      if (res != 0) {
+        this.isValidEmail = true;
+
+      }
+      else {
+        this.isValidEmail = false;
+      }
+
     }
     else {
-      this.isValidEmail = false;
+      this.isValidEmailPattern = true;
     }
+
+    // const url = 'http://localhost:5700/usernameEmail';
+    // let res = await this.http.post(url, this.userDetails).toPromise();
+    // if (res != 0) {
+    //   this.isValidEmail = true;
+    // }
+    // else {
+    //   this.isValidEmail = false;
+    // }
+  }
+
+  recalEmail() {
+    this.isValidEmailPattern = false;
   }
 
   checkPassword() {

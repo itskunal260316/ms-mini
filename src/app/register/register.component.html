@@ -52,10 +52,13 @@
             </div>
             <div class="form-group">
                 <label for="userEmail" class="form-text">Email :</label>
-                <input type="email" class="form-control" (blur)="validateEmail()" placeholder="Enter Email"
-                    id="userEmail" formControlName="email" required>
+                <input type="email" class="form-control" (blur)="validateEmail()" (touch)="recalEmail()"
+                    placeholder="Enter Email" id="userEmail" formControlName="email" required>
                 <div class="alert alert-danger mt-1" *ngIf="isValidEmail" role="alert">
-                    Email already exits
+                    Email already exits.
+                </div>
+                <div class="alert alert-danger mt-1" *ngIf="isValidEmailPattern" role="alert">
+                    Invalid Email Pattern.
                 </div>
             </div>
             <div class="form-group">
