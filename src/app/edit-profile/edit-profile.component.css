@@ -1,0 +1,11 @@
+.input-group-text{
+    font-weight: bolder;
+}
+
+
+
+#main-cont-ep{
+    background-image: url(../../assets/websitebg.jpg);
+    background-attachment: fixed;
+    height: 93vh;
+}

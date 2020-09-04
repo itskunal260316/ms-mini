@@ -1,0 +1,16 @@
+#form-cont{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#page-cont{
+    background-image: url(../../assets/websitebg.jpg);
+    background-attachment: fixed;
+}
+
+
+.navbar-links  :hover{
+    background-color:rgba(245, 245, 245,0.2); 
+    border-radius: 10px;
+    color: white;
+    text-shadow: white;
+}

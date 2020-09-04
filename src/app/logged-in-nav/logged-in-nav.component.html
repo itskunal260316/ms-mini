@@ -1,0 +1,40 @@
+<nav class=" navbar navbar-expand-lg sticky-top" id="nav-body">
+    <a class=" navbar-brand font-weight-bolder " style="font-size: 1.7rem;" href="">LoaND</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCol" aria-expanded="false"
+        aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navCol">
+
+        <ul class="navbar-nav ml-auto font-weight-bolder mr-2 " style="font-size: 1.2rem;">
+            <li class=" navbar-links nav-item ml-3 mr-3">
+                <a class="nav-link" routerLink="/home/mainPage">Home</a>
+            </li>
+            <li class=" navbar-links nav-item ml-3 mr-3 ">
+                <a class="nav-link" routerLink="/home/contact">Contact Us</a>
+            </li>
+            <li class=" navbar-links nav-item ml-3 mr-3 ">
+                <a class="nav-link" routerLink="/home/services">Services</a>
+            </li>
+            <li class=" navbar-links nav-item  ml-3 mr-3">
+                <a class="nav-link" routerLink="/home/about-us">About</a>
+            </li>
+            <li class=" navbar-links nav-item nav-item dropdown ">
+                <!-- <a class="nav-link" routerLink="/login">LOGIN</a> -->
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Hello {{userName}}
+                </a>
+                <div class="dropdown-menu mr-2 text-center " aria-labelledby="navbarDropdown">
+                    <button class="btn  btn-secondary m-1" (click)="signOut()">Sign Out</button>
+                    <button class="btn btn-secondary m-1" routerLink="/home/edit-profile" (click)="editProfile()">Edit
+                        Profile</button>
+                    <button class="btn btn-danger m-1" (click)="delProfile()">Delete Profile</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="btn btn-secondary m-1">Change Password</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

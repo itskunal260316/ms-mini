@@ -1,0 +1,30 @@
+<div class="main-cont fluid-container bg-dark d-flex justify-content-center align-items-center" style="height: 100vh; ">
+
+    <div class="login-cont col-lg-3 col-12 container pt-3 pb-3" style="border-radius: 2%;">
+        <div class="jumbotron bg-dark d-flex justify-content-center align-items-center p-3 font-weight-bold "
+            style="font-size: 2rem; color: white; ">
+            LOGIN
+        </div>
+
+        <div [formGroup]="loginGroup">
+            <div id="username-ip" class="form-group">
+                <label for="username" class="form-text ">EMAIL :</label>
+                <input type="text" class="form-control  col-12" id="username" placeholder="example123@abc.com"
+                    formControlName="username">
+                <small class="pl-2">Enter username or registered Email.</small>
+            </div>
+            <div id="password-ip" class="form-group">
+                <label for="username" class="form-text">PASSWORD :</label>
+                <input type="password" class="form-control col-12" id="password" placeholder="Enter password........"
+                    formControlName="password">
+            </div>
+        </div>
+        <div id="links" class="d-flex justify-content-center align-items-center flex-column">
+            <a href="#forgot" class="form-text">Forgot Password ?</a>
+            <p class=" d-flex form-text">Not Registered ? <a [routerLink]="['/register']"> Register Now</a></p>
+        </div>
+        <div id="login-btn" class="d-flex justify-content-center align-items-center flex-column">
+            <button type="submit" class="btn btn-primary col-lg-8" (click)="userLogin()">Login</button>
+        </div>
+    </div>
+</div>

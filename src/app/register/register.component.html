@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="page-cont" class="container-fluid bg-dark p-0 m-0">
+    <nav class=" navbar navbar-expand-lg bg-dark sticky-top">
+
+        <a class=" navbar-brand font-weight-bolder " style="font-size: 1.7rem;" href="">LoaND</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCol" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navCol">
+            <ul class="navbar-nav font-weight-bolder " style="font-size: 1.2rem;">
+                <li class=" navbar-links nav-item ml-3 mr-3">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class=" navbar-links nav-item ml-3 mr-3 ">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class=" navbar-links nav-item ml-3 mr-3 ">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class=" navbar-links nav-item  ml-3 mr-3">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto font-weight-bolder " style="font-size: 1.2rem;">
+                <li class=" navbar-links nav-item ">
+                    <a class="nav-link" routerLink="/login">LOGIN</a>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </nav>
+
+    <div id="form-cont" class="container col-lg-5 mt-3 pt-1" style="border-bottom-left-radius: 2%; border-radius: 2%;">
+
+        <div class="jumbotron bg-dark d-flex justify-content-center mb-5 mt-5 font-weight-bolder"
+            style="font-style: italic; color: white;">
+            <h1>REGISTRATION</h1>
+        </div>
+
+        <div [formGroup]="regForm">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fname" id="fnameLabel" class="form-text">First Name :</label>
+                    <input type="fname" class="form-control" placeholder=" Enter First Name" id="fname"
+                        formControlName="fname" autofocus>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lname" class="form-text">Last Name :</label>
+                    <input type="lname" class="form-control" placeholder="Enter Last Name" id="lname"
+                        formControlName="lname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username" class="form-text">Username :</label>
+                <input type="text" class="form-control" placeholder="Enter Username" id="username"
+                    formControlName="username" required>
+                <small></small>
+            </div>
+            <div class="form-group">
+                <label for="userEmail" class="form-text">Email :</label>
+                <input type="email" class="form-control" placeholder="Enter Email" id="userEmail"
+                    formControlName="email" required>
+                <small>Your private data will not be shared</small>
+            </div>
+            <div class="form-group">
+                <label for="userPass" class="form-text">Password :</label>
+                <input type="password" class="form-control" placeholder="Enter password" id="userPass"
+                    formControlName="userpass" required minlength="8" maxlength="32">
+                <small></small>
+            </div>
+            <div class="form-group">
+                <label for="conPass" class="form-text">Confirm Password :</label>
+                <input type="password" class="form-control" placeholder="Re-enter the Password" id="conPAss">
+                <small></small>
+            </div>
+            <div class="form-group">
+                <label for="phNumber" class="form-text">Phone Number :</label>
+                <input type="tel" class="form-control" placeholder="+91-XXXXXXXXXX" id="phNumber"
+                    formControlName="userphone" maxlength="10">
+                <small></small>
+            </div>
+
+        </div>
+
+
+        <div id="submit-btn" class="d-flex justify-content-center form-group">
+            <button type="submit" (click)="ajaxCall()" class="btn col-lg-5 btn-md btn-success form-control m-3"
+                [disabled]="!regForm.valid">SUBMIT</button>
+        </div>
+        <div class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+        </div>
+    </div>
+</div>

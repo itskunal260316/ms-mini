@@ -1,0 +1,15 @@
+.navbar-links  :hover{
+    background-color:white;
+    border-radius: 10px;
+    color: black;
+    text-shadow: white;
+}
+
+
+#nav-body{
+    background-image: linear-gradient(to right, rgb(92, 20, 18), rgb(0, 94, 182));
+}
+
+.nav-link{
+    color:white;
+}

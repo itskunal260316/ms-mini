@@ -1,0 +1,97 @@
+<div id="main-cont-ep" class="container-fluid">
+
+    <div [formGroup]="editForm" class=" container pb-5 pt-2 ml-auto mr-auto"
+        style="background-color: rgba(255, 255, 255,0.3 ); ">
+
+        <div class="jumbotron-fluid d-flex justify-content-center align-items-center mb-4 bg-dark p-5">
+
+            <h2 style="color: white;">EDIT PROFILE</h2>
+        </div>
+
+
+        <div class="input-group mb-2 col-lg-6 ml-auto mr-auto mb-5 p-0">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-dark" style="color:white;">USER-ID :</div>
+            </div>
+            <input formControlName="id" type="text" class="form-control" id="id" placeholder="UserID" disabled>
+            <div class="input-group-append">
+                <button class="btn btn-secondary">edit</button>
+            </div>
+        </div>
+
+
+
+        <div class="row pb-3">
+
+            <div class="input-group mb-2 col-lg-6">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-dark" style="color:white;">FIRST NAME :</div>
+                </div>
+                <input formControlName="fname" type="text" class="form-control" id="FirstName" placeholder="FirstName">
+                <div class="input-group-append">
+                    <div class="btn btn-secondary">edit</div>
+                </div>
+            </div>
+
+
+            <div class="input-group mb-2 col-lg-6">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-dark" style="color:white;">LAST NAME :</div>
+                </div>
+                <input formControlName="lname" type="text" class="form-control" id="LastName" placeholder="LastName">
+                <div class="input-group-append">
+                    <div class="btn btn-secondary">edit</div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row pb-3">
+
+            <div class="input-group mb-2 col-lg-6">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-dark" style="color:white;">USERNAME :</div>
+                </div>
+                <input formControlName="username" type="text" class="form-control" id="UserName" placeholder="UserName">
+                <div class="input-group-append">
+                    <div class="btn btn-secondary">edit</div>
+                </div>
+            </div>
+
+
+            <div class="input-group mb-2 col-lg-6">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-dark" style="color:white;">EMAIL-ID :</div>
+                </div>
+                <input formControlName="email" type="text" class="form-control" id="UserEmail" placeholder="UserEmail">
+                <div class="input-group-append">
+                    <div class="btn btn-secondary">edit</div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="input-group mb-2 col-lg-6  ml-auto mr-auto p-0">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-dark" style="color:white;">PHONE :</div>
+            </div>
+            <input formControlName="phone" type="text" class="form-control" id="UserPhone" placeholder="UserPhone">
+            <div class="input-group-append">
+                <div class="btn btn-secondary">edit</div>
+            </div>
+        </div>
+
+
+        <div class="d-flex justify-content-center mt-5">
+            <button class="btn btn-info m-1 btn-lg" (click)="loadData()">Load My Data</button>
+            <button class="btn btn-success m-1 btn-lg" (click)="editData()">Save Changes</button>
+        </div>
+
+    </div>
+
+
+</div>
