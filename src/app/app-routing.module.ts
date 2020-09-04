@@ -14,6 +14,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   {

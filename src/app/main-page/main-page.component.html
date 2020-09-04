@@ -47,41 +47,93 @@
 
 
 
-    <div class="container col-lg-4 mt-5 col-12 bg-warning p-3">
+    <div id="calculator" class="container col-lg-4 mt-5 col-12 p-3" style="background-color: rgba(255, 255, 255,0.4);">
 
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="jumbotron  d-flex justify-content-center align-items-center p-3 font-weight-bold "
+            style="font-size: 2rem; color: white; text-align: center;background-image: linear-gradient(to right, rgb(92, 20, 18), rgb(0, 94, 182))">
+            LOAN CALCULATOR
+        </div>
 
-            <div class="form-group col-6">
-                <label for="principalAmt">Principal Amount</label>
+        <div [formGroup]="loanDetails" class=" form-group flex-column d-flex justify-content-center align-items-center">
+
+            <div class="form-group col-lg-7 col-11">
+                <label for="principalAmt" class="font-weight-bolder">Principal Amount</label>
                 <div class="input-group flex-nowrap">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping">$</span>
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon [icon]="faDollarSign"></fa-icon>
+                        </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Enter Amount" aria-label="principalAmt"
-                        id="principalAmt" aria-describedby="addon-wrapping">
+                    <input type="number" formControlName="amountPri" class="form-control" placeholder="Enter Amount"
+                        aria-label="principalAmt" id="principalAmt" aria-describedby="addon-wrapping">
                 </div>
             </div>
 
-            <div class="form-group col-6">
-                <label for="rateOfIn">Rate Of Interest</label>
+            <div class="form-group col-lg-7 col-11">
+                <label for="rateOfIn" class="font-weight-bolder">Rate Of Interest :</label>
                 <div class="input-group flex-nowrap">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping">%</span>
+                        <span class="input-group-text" id="addon-wrapping">
+                            <fa-icon [icon]="faPercent"></fa-icon>
+                        </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Enter Interest" id="rateOfIn"
-                        aria-label="rateOfIn" aria-describedby="addon-wrapping">
+                    <input type="number" formControlName="roi" class="form-control" placeholder="Enter Interest"
+                        id="rateOfIn" aria-label="rateOfIn" aria-describedby="addon-wrapping">
                 </div>
             </div>
 
-            <div class="form-group col-6">
-                <label for="formGroupExampleInput2">Tenure</label>
+            <div class="form-group col-lg-7 col-11">
+                <label for="tenure" class="font-weight-bolder">Tenure In Years :</label>
                 <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping">%</span>
+                    <div class="input-group-prepend ">
+                        <span class=" input-group-text" id="addon-wrapping">
+                            <fa-icon [icon]="faClock"></fa-icon>
+                        </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                    <input type="number" class="form-control" formControlName="tenure"
+                        placeholder="Enter tenure in Years" aria-label="tenure" id="tenure"
                         aria-describedby="addon-wrapping">
                 </div>
+            </div>
+
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <button class="btn btn-dark col-8 col-lg-6 mt-5 btn-lg" (click)="calcLoanDetails()">Calculate</button>
+        </div>
+
+
+
+        <div *ngIf="interestCalculated" class="bg-secondary mt-3 p-2 pt-3 form-group">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend ">
+                    <span class="input-group-text bg-dark" style="color: white;" id="inputGroup-sizing-default">Monthly
+                        Payment</span>
+                </div>
+                <input type="text" class="form-control" value={{monthly_payment}} aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend ">
+                    <span class="input-group-text bg-dark" style="color: white;" id="inputGroup-sizing-default">Total
+                        Interest</span>
+                </div>
+                <input type="text" class="form-control" value={{total_interest}} aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend ">
+                    <span class="input-group-text bg-dark" style="color: white;" id="inputGroup-sizing-default">Total
+                        Payment</span>
+                </div>
+                <input type="text" class="form-control" value={{total_payment}} aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" disabled>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                <button class="btn btn-dark col-8 col-lg-6 mt-3 btn-lg" (click)="calcDone()">Done</button>
             </div>
 
         </div>
@@ -94,7 +146,7 @@
 
 
     <div class="container-fluid mt-5  d-flex justify-content-center align-items-center flex-column">
-        <div class="jumbotron d-flex justify-content-center align-items-center p-2"
+        <div class="jumbotron col-12 d-flex  justify-content-center align-items-center p-2"
             style="background-color: rgba(255, 255, 255, 0.3)">
             <p class="font-weight-bolder "
                 style="font-size: 2rem; color:white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
@@ -110,7 +162,7 @@
                     <p class="card-text">The family plan is here and we are offering loans upto 50 Lacs with reduced
                         rate of
                         interest. What are you waiting for ?</p>
-                    <a href="#" class="btn btn-warning">Explore</a>
+                    <a href="#" class="btn btn-warning btn-block">Explore</a>
                 </div>
             </div>
 
@@ -121,7 +173,7 @@
                     <h3 class="card-title">Home Loans</h3>
                     <p class="card-text">Having a home for yourself is a dream for many, thus we have launched multiple
                         schemes that will help fulfill your dream with no fuss.</p>
-                    <a href="#" class="btn btn-warning ml-auto">Explore</a>
+                    <a href="#" class="btn btn-warning btn-block">Explore</a>
                 </div>
             </div>
 
@@ -132,7 +184,7 @@
                     <h3 class="card-title">Education Loans</h3>
                     <p class="card-text">Our tie ups with the best career consultants will open numerous gateways to
                         National as well as International Universities</p>
-                    <a href="#" class="btn btn-warning">Explore</a>
+                    <a href="#" class="btn btn-warning btn-block">Explore</a>
                 </div>
             </div>
 

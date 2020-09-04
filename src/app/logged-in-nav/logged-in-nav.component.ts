@@ -3,6 +3,8 @@ import { Router } from '@angular/router'
 import { ShareUserDataService } from '../shareUserData/share-user-data.service'
 import { HttpClientModule, HttpClient } from '@angular/common/http'
 import { CommentStmt } from '@angular/compiler';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-logged-in-nav',
@@ -16,6 +18,7 @@ export class LoggedInNavComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  faBars = faBars;
   userName = sessionStorage.getItem('user_name');
 
   signOut() {

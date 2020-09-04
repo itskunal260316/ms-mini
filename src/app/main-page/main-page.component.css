@@ -2,3 +2,10 @@
     background-image: url(../../assets/websitebg.jpg);
     background-attachment: fixed;
 }
+
+
+#calculator{
+    border-color: white;
+    border-width: 5px;
+    border-radius: 2%;  
+}
