@@ -67,10 +67,10 @@
             </div>
             <div class="form-group">
                 <label for="userEmail" class="form-text">Email :</label>
-                <input type="email" class="form-control" placeholder="Enter Email" id="userEmail"
-                    formControlName="email" required>
+                <input type="email" class="form-control" (blur)="validateEmail()" placeholder="Enter Email"
+                    id="userEmail" formControlName="email" required>
                 <div class="alert alert-danger" *ngIf="isValidEmail" role="alert">
-                    Username already exits
+                    Email already exits
                 </div>
             </div>
             <div class="form-group">
@@ -81,8 +81,11 @@
             </div>
             <div class="form-group">
                 <label for="conPass" class="form-text">Confirm Password :</label>
-                <input type="password" class="form-control" placeholder="Re-enter the Password" id="conPAss">
-                <small></small>
+                <input type="password" class="form-control" (blur)="checkPassword()" placeholder="Re-enter the Password"
+                    id="conPAss">
+                <div class="alert alert-danger" *ngIf="isPasswordSame" role="alert">
+                    Passwords don't match.
+                </div>
             </div>
             <div class="form-group">
                 <label for="phNumber" class="form-text">Phone Number :</label>

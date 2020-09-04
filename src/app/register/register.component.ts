@@ -16,6 +16,7 @@ export class RegisterComponent {
 
   public isValidUsername = false;
   public isValidEmail = false;
+  public isPasswordSame = false;
 
   public regForm = this.fb.group({
 
@@ -61,6 +62,24 @@ export class RegisterComponent {
     else {
       this.isValidUsername = false;
     }
+  }
+
+  async validateEmail() {
+    this.userDetails = this.regForm.value;
+    const url = 'http://localhost:5700/usernameEmail';
+    let res = await this.http.post(url, this.userDetails).toPromise();
+    if (res != 0) {
+      this.isValidEmail = true;
+    }
+    else {
+      this.isValidEmail = false;
+    }
+  }
+
+  checkPassword() {
+    this.userDetails = this.regForm.value;
+    console.log(this.userDetails);
+
   }
 
 
