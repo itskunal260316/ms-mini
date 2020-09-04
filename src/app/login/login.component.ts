@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public invalidCred = false;
 
   loginGroup = new FormGroup({
 
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("user_name", nameOfuser);
       }
       else {
-        alert("Invalid Credentials, Try again.");
+        this.invalidCred = true;
       }
 
     }

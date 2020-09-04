@@ -23,6 +23,12 @@
             <a href="#forgot" class="form-text">Forgot Password ?</a>
             <p class=" d-flex form-text">Not Registered ? <a [routerLink]="['/register']"> Register Now</a></p>
         </div>
+        <div class="alert alert-danger mt-1" *ngIf="invalidCred" role="alert">
+            Invalid user credentials, Try again.
+        </div>
+
+
+
         <div id="login-btn" class="d-flex justify-content-center align-items-center flex-column">
             <button type="submit" class="btn btn-primary col-lg-8" (click)="userLogin()">Login</button>
         </div>
