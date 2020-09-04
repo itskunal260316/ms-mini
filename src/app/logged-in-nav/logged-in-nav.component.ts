@@ -20,8 +20,15 @@ export class LoggedInNavComponent implements OnInit {
   }
   faBars = faBars;
   userName = sessionStorage.getItem('user_name');
+  public signOutModal = true;
+
+
+  signOutModalFunction() {
+    this.signOutModal = true;
+  }
 
   signOut() {
+    this.signOutModalFunction();
     sessionStorage.removeItem('sid');
     this.router.navigate(['login']);
   }
