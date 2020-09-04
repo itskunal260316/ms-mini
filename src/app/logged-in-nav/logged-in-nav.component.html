@@ -30,7 +30,8 @@
                     Hello {{userName}}
                 </a>
                 <div class="dropdown-menu mr-2 text-center " aria-labelledby="navbarDropdown">
-                    <button class="btn  btn-secondary m-1" (click)="signOut()">Sign Out</button>
+                    <button class="btn  btn-secondary m-1" (click)="signOut()" data-toggle="modal"
+                        data-target="#confirmSignOut">Sign Out</button>
                     <button class="btn btn-secondary m-1" routerLink="/home/edit-profile" (click)="editProfile()">Edit
                         Profile</button>
                     <button class="btn btn-danger m-1" (click)="delProfile()">Delete Profile</button>
@@ -41,3 +42,24 @@
         </ul>
     </div>
 </nav>
+
+
+<div id="confirmSignOut" class="modal-dialog modal-dialog-centered" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure to Sign Out ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You will need to sign back in to access other services.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

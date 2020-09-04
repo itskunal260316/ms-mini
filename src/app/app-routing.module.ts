@@ -9,6 +9,7 @@ import { ServicesComponent } from './services/services.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'edit-profile', component: EditProfileComponent }
     ]
   },
+  { path: '**', component: PageNotFoundComponent }
 
 
 ];
