@@ -20,6 +20,8 @@ export class LoggedInNavComponent implements OnInit {
   }
   faBars = faBars;
   faLandmark = faLandmark;
+
+
   userName = sessionStorage.getItem('user_name');
   public signOutModal = true;
 
