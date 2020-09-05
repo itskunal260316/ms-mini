@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-change-password',
@@ -18,6 +19,7 @@ export class ChangePasswordComponent implements OnInit {
   isValid = false;
   updateSuccessful = false;
   updateFailed = false;
+  faEdit = faEdit;
 
   public updatePass = this.fb.group({
 
