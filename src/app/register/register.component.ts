@@ -4,6 +4,7 @@ import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { flatten } from '@angular/compiler';
 import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
+import { faLandmark } from '@fortawesome/free-solid-svg-icons'
 
 
 @Component({
@@ -20,6 +21,9 @@ export class RegisterComponent {
   public isPasswordSame = false;
   public isValidEmailPattern = false;
   public isValidPassPattern = false;
+  userisAdded = false;
+  faLandmark = faLandmark;
+
 
   public regForm = this.fb.group({
 
@@ -45,7 +49,7 @@ export class RegisterComponent {
     const url = 'http://localhost:5700/adduser';
     let res = await this.http.post(url, this.userDetails).toPromise();
     if (res == "UserAdded") {
-      alert("User Added");
+      this.userisAdded = true;
     }
     else {
       alert("Operation Failed");

@@ -8,20 +8,20 @@
 
         <div [formGroup]="loginGroup">
             <div id="username-ip" class="form-group">
-                <label for="username" class="form-text " style="font-weight: bolder;">Username :</label>
+                <label for="username" class="form-text " style="font-weight: bolder; color: white;">Username :</label>
                 <input type="text" class="form-control  col-12" id="username" placeholder="Enter Username"
                     formControlName="username">
-                <small class="pl-2">Enter username or registered Email.</small>
+                <small style="color: white;" class="pl-2">Enter username </small>
             </div>
             <div id="password-ip" class="form-group">
-                <label for="username" class="form-text" style="font-weight: bolder;">Password :</label>
+                <label for="username" class="form-text" style="font-weight: bolder; color: white;">Password :</label>
                 <input type="password" class="form-control col-12" id="password" placeholder="Enter Password"
                     formControlName="password">
             </div>
         </div>
         <div id="links" class="d-flex justify-content-center align-items-center flex-column">
-            <a href="#forgot" class="form-text font-weight-bolder">Forgot Password ?</a>
-            <p class=" d-flex form-text font-weight-bolder">Not Registered ? <a class="ml-2"
+            <a routerLink="/forgotPassword/" class="form-text font-weight-bolder">Forgot Password ?</a>
+            <p class=" d-flex form-text font-weight-bolder" style="color: white;">Not Registered ? <a class="ml-2"
                     [routerLink]="['/register']"> Register
                     Now</a></p>
         </div>

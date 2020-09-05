@@ -11,6 +11,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
   {
     path: 'home', component: HomePageComponent, children: [
 

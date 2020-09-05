@@ -3,7 +3,9 @@
 
 
 <nav class=" navbar navbar-expand-lg sticky-top" id="nav-body">
-    <a class=" navbar-brand font-weight-bolder " style="font-size: 1.7rem;" href="">LoaND</a>
+    <a class=" navbar-brand font-weight-bolder " style="font-size: 1.7rem; color: white;" routerLink="/home/about-us/">
+        <fa-icon class="mr-2" [icon]="faLandmark"></fa-icon>LoaND
+    </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCol" aria-expanded="false"
         aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
@@ -18,32 +20,33 @@
         </ul>
     </div>
 </nav>
-<div id="page-cont" class="container-fluid bg-dark p-0 m-0">
+<div id="page-cont" class="container-fluid  p-0 m-0">
 
 
     <div id="form-cont" class="container col-lg-5  p-4" style=" border-radius: 2%;">
 
-        <div class="jumbotron bg-dark d-flex justify-content-center mb-5 mt-5 font-weight-bolder"
-            style="font-style: italic; color: white;">
-            <h1>REGISTRATION</h1>
+        <div class="jumbotron  bg-dark d-flex justify-content-center mb-5 mt-5 font-weight-bolder"
+            style="font-style: italic; color: white; background-color: rgba(255, 255, 255,0);">
+            <h1 class="font-weight-bold">REGISTRATION</h1>
         </div>
 
         <div [formGroup]="regForm">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="fname" id="fnameLabel" class="form-text">First Name :</label>
+                    <label for="fname" id="fnameLabel" class="form-text" style="font-weight:bolder; color:white">First
+                        Name :</label>
                     <input type="fname" class="form-control" placeholder=" Enter First Name" id="fname"
                         formControlName="fname" autofocus>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="lname" class="form-text">Last Name :</label>
+                    <label for="lname" class="form-text" style="font-weight:bolder; color:white">Last Name :</label>
                     <input type="lname" class="form-control" placeholder="Enter Last Name" id="lname"
                         formControlName="lname">
                 </div>
             </div>
             <div class="form-group">
-                <label for="username" class="form-text">Username :</label>
+                <label for="username" class="form-text" style="font-weight:bolder; color:white">Username :</label>
                 <input type="text" class="form-control" (blur)="validateUsername()" placeholder="Enter Username"
                     id="username" formControlName="username" required>
                 <div class="alert alert-danger mt-1" *ngIf="isValidUsername" role="alert">
@@ -51,7 +54,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="userEmail" class="form-text">Email :</label>
+                <label for="userEmail" class="form-text" style="font-weight:bolder; color:white">Email :</label>
                 <input type="email" class="form-control" (blur)="validateEmail()" placeholder="Enter Email"
                     id="userEmail" formControlName="email" required>
                 <div class="alert alert-danger mt-1" *ngIf="isValidEmail" role="alert">
@@ -62,13 +65,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="userPass" class="form-text">Password :</label>
+                <label for="userPass" class="form-text" style="font-weight:bolder; color:white">Password :</label>
                 <input type="password" class="form-control" placeholder="Enter password" id="userPass"
                     formControlName="userpass" required minlength="8" maxlength="32">
                 <small></small>
             </div>
             <div class="form-group">
-                <label for="conPass" class="form-text">Confirm Password :</label>
+                <label for="conPass" class="form-text" style="font-weight:bolder; color:white">Confirm Password
+                    :</label>
                 <input type="password" formControlName="conPass" class="form-control" (blur)="checkPassword()"
                     placeholder="Re-enter the Password" id="conPAss">
                 <div class="alert alert-danger mt-1" *ngIf="isPasswordSame" role="alert">
@@ -79,7 +83,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="phNumber" class="form-text">Phone Number :</label>
+                <label for="phNumber" class="form-text" style="font-weight:bolder; color:white">Phone Number :</label>
                 <input type="tel" class="form-control" placeholder="+91-XXXXXXXXXX" id="phNumber"
                     formControlName="userphone" maxlength="10">
                 <small></small>
@@ -87,11 +91,21 @@
 
         </div>
 
+        <div class="alert alert-success mt-1" *ngIf="userisAdded" role="alert">
+            You are now a registred user, Log In to continue.
+        </div>
+
+
+
 
 
         <div id="submit-btn" class="d-flex justify-content-center form-group">
             <button type="submit" (click)="ajaxCall()" class="btn col-lg-5 btn-md btn-success form-control m-3"
                 [disabled]="!regForm.valid">SUBMIT</button>
+        </div>
+
+        <div *ngIf="userisAdded" class="d-flex justify-content-center form-group">
+            <a routerLink="/login/" class="btn col-lg-5 btn-primary">Login</a>
         </div>
 
 

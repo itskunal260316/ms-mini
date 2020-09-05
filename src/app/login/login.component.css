@@ -1,9 +1,10 @@
 .main-cont{
-     background-image: url(../../assets/websitebg.jpg);
+     background-image: url(../../assets/contactsBg.jpg);
       
 }
 
 
 .login-cont{
-    background-color: rgba(255, 253, 253,0.5) ;
+    background-image: linear-gradient(to right, rgb(92, 20, 18), rgb(0, 94, 182));
+    border-radius: 3%;
 }
