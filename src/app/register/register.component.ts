@@ -108,15 +108,12 @@ export class RegisterComponent {
     else {
       this.isValidPassPattern = true;
     }
-
-
-
-
-
-
   }
 
 
 
 
+
+
 }
+

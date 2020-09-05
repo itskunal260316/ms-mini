@@ -10,6 +10,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 
@@ -21,12 +22,14 @@ const routes: Routes = [
   {
     path: 'home', component: HomePageComponent, children: [
 
+
       { path: '', component: MainPageComponent },
       { path: 'mainPage', component: MainPageComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'services', component: ServicesComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'edit-profile', component: EditProfileComponent }
+      { path: 'edit-profile', component: EditProfileComponent },
+      { path: 'changePassword', component: ChangePasswordComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent }

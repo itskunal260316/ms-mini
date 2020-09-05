@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormControl, FormControlName, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contact',
@@ -18,6 +19,7 @@ export class ContactComponent implements OnInit {
   isMessageSent = false;
   public isContactEmailValid = false;
   public isContactPhone = false;
+  faPaperPlane = faPaperPlane;
 
   public contactMsg = this.fb.group({
 
