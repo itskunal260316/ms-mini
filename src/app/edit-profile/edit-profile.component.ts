@@ -20,7 +20,7 @@ export class EditProfileComponent implements OnInit {
 
   }
 
-
+  public userUpdated = false;
   public editForm = this.fb.group({
 
     fname: ['', Validators.required],
@@ -56,10 +56,10 @@ export class EditProfileComponent implements OnInit {
     console.log(updateDetails);
     let resp = await this.http.post(url, updateDetails).toPromise();
     if (resp === "updated") {
-      alert("User details were updated");
+      this.userUpdated = true;
     }
     else {
-      alert("An error has occured,please try again");
+      this.userUpdated = false;
     }
   }
 }
